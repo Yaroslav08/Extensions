@@ -5,6 +5,9 @@ namespace Extensions
 {
     public class Generator
     {
-        
+        public static int GetCode(int length)
+        {
+
+        }
     }
 }
