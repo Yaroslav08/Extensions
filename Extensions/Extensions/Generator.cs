@@ -18,7 +18,8 @@ namespace Extensions
             {
                 stringChars[i] = chars[random.Next(chars.Length)];
             }
-            return new String(stringChars);
+            var result = new String(stringChars);
+            return IsUpper ? result.ToUpper() : IsLowwer ? result.ToLower() : result;
         }
     }
 }
