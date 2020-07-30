@@ -9,5 +9,10 @@ namespace Extensions
         {
 
         }
+
+        public static string ChechPasswordHash(string password, string passwordhash)
+        {
+
+        }
     }
 }
