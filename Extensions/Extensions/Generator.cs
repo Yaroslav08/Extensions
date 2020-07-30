@@ -9,5 +9,9 @@ namespace Extensions
         {
 
         }
+        public static string GetString(int length = 10, bool IsUpper = false, bool IsLowwer = false)
+        {
+
+        }
     }
 }
