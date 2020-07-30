@@ -8,7 +8,7 @@ namespace Extensions
 {
     public class PasswordManager
     {
-        private string GeneratePasswordHash(string password, KeyDerivationPrf prf = KeyDerivationPrf.HMACSHA256, int iterationCount = 10000, int saltSize = 16)
+        public static string GeneratePasswordHash(string password, KeyDerivationPrf prf = KeyDerivationPrf.HMACSHA256, int iterationCount = 10000, int saltSize = 16)
         {
             using (var rng = RandomNumberGenerator.Create())
             {
@@ -18,7 +18,7 @@ namespace Extensions
                 return Convert.ToBase64String(ComposePasswordHash(salt, (uint)iterationCount, pbkdf2Hash));
             }
         }
-        private bool VerifyPasswordHash(string password, string passwordHash)
+        public static bool VerifyPasswordHash(string password, string passwordHash)
         {
             var identityV3HashArray = Convert.FromBase64String(passwordHash);
             if (identityV3HashArray[0] != 1) throw new InvalidOperationException("passwordHash is not Identity V3");
@@ -38,7 +38,7 @@ namespace Extensions
             var hashFromInputPassword = KeyDerivation.Pbkdf2(password, salt, prf, iterationCount, 32);
             return AreByteArraysEqual(hashFromInputPassword, savedHashedPassword);
         }
-        private byte[] ComposePasswordHash(byte[] salt, uint iterationCount, byte[] passwordHash)
+        private static byte[] ComposePasswordHash(byte[] salt, uint iterationCount, byte[] passwordHash)
         {
             var hash = new byte[1 + 4 + 4 + 4 + salt.Length + 32];
             hash[0] = 1;
@@ -51,7 +51,7 @@ namespace Extensions
 
             return hash;
         }
-        private bool AreByteArraysEqual(byte[] array1, byte[] array2)
+        private static bool AreByteArraysEqual(byte[] array1, byte[] array2)
         {
             if (array1.Length != array2.Length) return false;
 
@@ -62,11 +62,11 @@ namespace Extensions
             }
             return areEqual;
         }
-        private byte[] ConvertToNetworkOrder(uint number)
+        private static byte[] ConvertToNetworkOrder(uint number)
         {
             return BitConverter.GetBytes(number).Reverse().ToArray();
         }
-        private uint ConvertFromNetworOrder(byte[] reversedUint)
+        private static uint ConvertFromNetworOrder(byte[] reversedUint)
         {
             return BitConverter.ToUInt32(reversedUint.Reverse().ToArray(), 0);
         }
