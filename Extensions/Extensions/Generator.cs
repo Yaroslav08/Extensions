@@ -9,9 +9,16 @@ namespace Extensions
         {
 
         }
-        public static string GetString(int length = 10, bool IsUpper = false, bool IsLowwer = false)
+        public static string GetString(int length, bool IsUpper = false, bool IsLowwer = false)
         {
-
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[length];
+            var random = new Random();
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+            return new String(stringChars);
         }
     }
 }
