@@ -10,7 +10,7 @@ namespace Extensions
 
         }
 
-        public static string ChechPasswordHash(string password, string passwordhash)
+        public static string VerifyPasswordHash(string password, string passwordhash)
         {
 
         }
