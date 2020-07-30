@@ -14,5 +14,10 @@ namespace Extensions
         {
 
         }
+
+        private static byte[] ComposePasswordHash(byte[] salt, uint iterationCount, byte[] passwordHash)
+        {
+
+        }
     }
 }
