@@ -5,6 +5,9 @@ namespace Extensions
 {
     public class PasswordManager
     {
+        public static string GetPasswordHash(string password)
+        {
 
+        }
     }
 }
