@@ -29,5 +29,22 @@ namespace Extensions
             var result = new String(stringChars);
             return IsUpper ? result.ToUpper() : IsLowwer ? result.ToLower() : result;
         }
+
+        public static string GetUniqCodeUpper()
+        {
+            var stringChars = new char[19];
+            var random = new Random();
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                if(i == 4 || i == 9 || i == 14)
+                {
+                    stringChars[i] = '-';
+                    continue;
+                }
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+            var res = new String(stringChars);
+            return res.ToUpper();
+        }
     }
 }
