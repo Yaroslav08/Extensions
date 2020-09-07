@@ -5,6 +5,7 @@ namespace Extensions
 {
     public class Generator
     {
+        public static string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         public static string GetCode(int length)
         {
             var chars = "0123456789";
@@ -19,7 +20,6 @@ namespace Extensions
 
         public static string GetString(int length, bool IsUpper = false, bool IsLowwer = false)
         {
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var stringChars = new char[length];
             var random = new Random();
             for (int i = 0; i < stringChars.Length; i++)
