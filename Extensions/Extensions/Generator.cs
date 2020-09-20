@@ -56,16 +56,49 @@ namespace Extensions
             return ukrFirstNames[rnd.Next(0, ukrFirstNames.Length)];
         }
 
+        public static List<string> GetFirstnamesRandom(int count)
+        {
+            var rnd = new Random();
+            List<string> names = new List<string>();
+            for (int i = 0; i < count; i++)
+            {
+                names.Add(ukrFirstNames[rnd.Next(0, ukrFirstNames.Length)]);
+            }
+            return names;
+        }
+
         public static string GetLastnameRandom()
         {
             var rnd = new Random();
             return ukrLastName[rnd.Next(0, ukrLastName.Length)];
         }
 
+        public static List<string> GetLastnamesRandom(int count)
+        {
+            var rnd = new Random();
+            List<string> names = new List<string>();
+            for (int i = 0; i < count; i++)
+            {
+                names.Add(ukrLastName[rnd.Next(0, ukrLastName.Length)]);
+            }
+            return names;
+        }
+
         public static string GetFullnameRandom()
         {
             var rnd = new Random();
             return $"{ukrFirstNames[rnd.Next(0, ukrFirstNames.Length)]} {ukrLastName[rnd.Next(0, ukrLastName.Length)]}";
+        }
+
+        public static List<string> GetFullnamesRandom(int count)
+        {
+            var rnd = new Random();
+            List<string> names = new List<string>();
+            for (int i = 0; i < count; i++)
+            {
+                names.Add($"{ukrFirstNames[rnd.Next(0, ukrFirstNames.Length)]} {ukrLastName[rnd.Next(0, ukrLastName.Length)]}");
+            }
+            return names;
         }
     }
 }
