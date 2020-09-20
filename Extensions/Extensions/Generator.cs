@@ -5,7 +5,7 @@ namespace Extensions
 {
     public class Generator
     {
-        public static string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        static string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         public static string GetCode(int length)
         {
             var chars = "0123456789";
