@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 namespace Extensions
 {
@@ -46,6 +48,34 @@ namespace Extensions
             }
             var res = new String(stringChars);
             return res.ToUpper();
+        }
+
+        public static byte[] GetArrayMD5CheckSum(string pathToFile)
+        {
+            using var md5 = MD5.Create();
+            using var stream = File.OpenRead(pathToFile);
+            return md5.ComputeHash(stream);
+        }
+
+        public static byte[] GetArrayMD5CheckSum(Stream stream)
+        {
+            using var md5 = MD5.Create();
+            return md5.ComputeHash(stream);
+        }
+
+        public static string GetStringMD5CheckSum(string pathToFile)
+        {
+            using var md5 = MD5.Create();
+            using var stream = File.OpenRead(pathToFile);
+            var hash = md5.ComputeHash(stream);
+            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+        }
+
+        public static string GetStringMD5CheckSum(Stream stream)
+        {
+            using var md5 = MD5.Create();
+            var hash = md5.ComputeHash(stream);
+            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
         }
     }
 }
