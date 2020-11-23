@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>Yaroslav08..Extensions</PackageId>
+    <PackageId>Yaroslav08.Extensions</PackageId>
     <Authors>Yaroslav08</Authors>
     <Company>Yaroslav08</Company>
     <PackageReleaseNotes>First release include:
