@@ -6,12 +6,13 @@
     <PackageId>Yaroslav08.Extensions</PackageId>
     <Authors>Yaroslav08</Authors>
     <Company>Yaroslav08</Company>
-    <PackageReleaseNotes>1.2 release include:
-Added IP check</PackageReleaseNotes>
-    <Version>1.2.0</Version>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <PackageReleaseNotes>1.3 release include:
+Added Change Tracker functionality</PackageReleaseNotes>
+    <Version>1.3.0</Version>
+    <AssemblyVersion>1.3.0.0</AssemblyVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/Yaroslav08/Extensions</RepositoryUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
