@@ -6,9 +6,12 @@
     <PackageId>Yaroslav08.Extensions</PackageId>
     <Authors>Yaroslav08</Authors>
     <Company>Yaroslav08</Company>
-    <PackageReleaseNotes>First release include:
-Password to PasswordHash (Generate, Verify)
-Generator (number as string, random string, uniq code and MD5 check sum)</PackageReleaseNotes>
+    <PackageReleaseNotes>1.2 release include:
+Added IP check</PackageReleaseNotes>
+    <Version>1.2.0</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/Yaroslav08/Extensions</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
