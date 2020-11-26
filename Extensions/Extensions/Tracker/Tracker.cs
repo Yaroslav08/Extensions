@@ -68,5 +68,6 @@ namespace Extensions.Tracker
         }
         public Object<T> GetFirstElement() => objects.FirstOrDefault();
         public Object<T> GetLastElement() => objects.LastOrDefault();
+        public List<Object<T>> GetAllElements() => objects;
     }
 }
