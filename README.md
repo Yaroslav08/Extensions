@@ -27,8 +27,8 @@ or select in Nuget "Yaroslav08.Extensions"
  var info = await ipclient.GetFullInfo();
  ```
  
-  ## Usage Date Extension
-  ### Get full date
+## Usage Date Extension
+### Get full date
 ```csharp
 new DateTime(2020, 3, 12, 20, 20, 20);
 Console.WriteLine(date.GetBasic(false)); // print "20:20"
@@ -92,3 +92,96 @@ Console.WriteLine(DateExtension.ConvertDateTimeToUnix(DateTime.Now)); //print 15
 ```csharp
 Console.WriteLine(DateExtension.ConvertUnixToDateTime(1584645300).Day); //print 19
 ```
+
+ ## Usage Tracker
+ ```csharp
+ public class Person
+ {
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string About { get; set; }
+ }
+ ```
+ ### For create Tracker instance
+ ```csharp
+Tracker<Person> tracker = new Tracker<Person>(); //create instance
+ ```
+ ### If first record we must to call next method
+ 
+ ```csharp
+            Tracker<Person> tracker = new Tracker<Person>();
+            tracker.Add(new Object<Person>
+            {
+                CreatedAt = DateTime.Now,
+                OldState = new Person(),
+                NewState = new Person(),
+                ObjectId = "1",
+                Objs = new List<Obj>
+                {
+                    new Obj
+                    {
+                        NameField = "Name",
+                        OldValueField = "Yarik",
+                        NewValueField = "Yaroslav"
+                    },
+                    new Obj
+                    {
+                        NameField = "About",
+                        OldValueField = "Dev",
+                        NewValueField = "Developer"
+                    },
+                }
+            });
+ ```
+ 
+ ### If we already have JSON content in other entity we can upload string json via next method
+ 
+ ```csharp
+Tracker<Person> tracker = new Tracker<Person>({json_schema_in_string});
+ ```
+ or
+  ```csharp
+ tracker.Upload("{json_schema_in_string}");
+  ```
+ ### If we already have list, call next method for get content in JSON format as string
+ ```csharp
+ string content = tracker.Save();
+ ```
+ 
+ ## Also we can work with files
+ 
+ ### We call method ImportFromFileAsync for upload content
+ ```csharp
+tracker.ImportFromFile("{path_to_file}");
+ ```
+ 
+ ### We call method ExportToFile for download content to file
+ ```csharp
+ tracker.ExportToFile("{path_to_file}", "{fileName.json}");
+ ```
+ ## Getting items
+ 
+ ### For get last item we call GetLastItem method
+ ```csharp
+ var item = tracker.GetLastElement();
+ ```
+ 
+  ### For get first item we call GetFirstItem method
+ ```csharp
+ var item = tracker.GetFirstElement();
+ ```
+ ### For clear all items call Clear() method
+ ```csharp
+ tracker.Clear();
+ ```
+ ### For remove some element call Remove() method
+ 
+ ```csharp
+ tracker.Remove(tracker.GetLastElement()); // remove last element
+ ```
+ 
+ ### And last method, if we want get all items call GetCurrentObjects property
+ ```csharp
+ var allItems = tracker.GetAllElements();
+ ```
+
