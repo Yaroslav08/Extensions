@@ -33,23 +33,57 @@ namespace Extensions
             return IsUpper ? result.ToUpper() : IsLowwer ? result.ToLower() : result;
         }
 
-        public static string GetUniqCodeUpper()
+        public static string GetUniqCode()
         {
-            var stringChars = new char[19];
+            return GetUniqCodeUpper(4);
+        }
+
+        public static string GetUniqCode(byte sections)
+        {
+            var commonWords = sections * 4;
+            var commonCountOfSymbols = commonWords + (sections - 1);
+            var stringChars = new char[commonCountOfSymbols];
+            var positons = GetHyphenPositions(sections);
             var random = new Random();
             for (int i = 0; i < stringChars.Length; i++)
             {
-                if(i == 4 || i == 9 || i == 14)
+                if (positons.Contains(i))
                 {
                     stringChars[i] = '-';
                     continue;
                 }
                 stringChars[i] = chars[random.Next(chars.Length)];
             }
-            var res = new String(stringChars);
-            return res.ToUpper();
+            var result = new String(stringChars);
+            return result;
         }
 
+        public static string GetUniqCodeUpper(byte sections)
+        {
+            return GetUniqCode(sections).ToUpper();
+        }
+
+        public static string GetUniqCodeLower(byte sections)
+        {
+            return GetUniqCode(sections).ToLower();
+        }
+
+        private static int[] GetHyphenPositions(int sections)
+        {
+            var pos = new int[sections - 1];
+            var baseIndex = 4;
+            for (int i = 0; i < pos.Length; i++)
+            {
+                pos[i] = baseIndex;
+                baseIndex += 4 + 1;
+            }
+            return pos;
+        }
+
+
+
+
+        #region FileChecker
         public static byte[] GetArrayMD5CheckSum(string pathToFile)
         {
             using var md5 = MD5.Create();
@@ -77,5 +111,6 @@ namespace Extensions
             var hash = md5.ComputeHash(stream);
             return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
         }
+        #endregion
     }
 }
