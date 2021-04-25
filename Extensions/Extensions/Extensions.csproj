@@ -6,10 +6,10 @@
     <PackageId>Yaroslav08.Extensions</PackageId>
     <Authors>Yaroslav08</Authors>
     <Company>Yaroslav08</Company>
-    <PackageReleaseNotes>1.5 release include:
-Added IEntityBase model as base model for db in example</PackageReleaseNotes>
-    <Version>1.5.0</Version>
-    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+    <PackageReleaseNotes>1.6 release include:
+Added method for generate a various unique codes</PackageReleaseNotes>
+    <Version>1.6.0</Version>
+    <AssemblyVersion>1.6.0.0</AssemblyVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/Yaroslav08/Extensions</RepositoryUrl>
     <PackageLicenseExpression></PackageLicenseExpression>
