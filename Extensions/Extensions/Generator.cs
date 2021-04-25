@@ -16,7 +16,7 @@ namespace Extensions
             var rnd = new Random();
             for (int i = 0; i < length; i++)
             {
-                result += chars[rnd.Next(10)];
+                result += chars[rnd.Next(chars.Length)];
             }
             return result;
         }
